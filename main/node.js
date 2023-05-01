@@ -9,4 +9,8 @@ app.get("/sampic", function (req, res) {
   res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/sam.png");
 });
 
+app.get("/insta", function (req, res) {
+  res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/insta.png");
+});
+
 app.listen(3000);

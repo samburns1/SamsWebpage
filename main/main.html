@@ -5,6 +5,12 @@
     <title>main</title>
     <link rel="stylesheet" href="css/main.css" />
   </head>
+  <script defer>
+    document.getElementById("insta").src = "/insta";
+    function openinsta() {
+      window.open("https://www.instagram.com/ssammyburns");
+    }
+  </script>
 
   <style>
     .body {
@@ -74,6 +80,23 @@
       color: #add8e6;
     }
 
+    .socials {
+      display: flex;
+      flex-direction: row !important;
+      width: 29px;
+      height: 29px;
+      margin-top: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: transparent;
+      border: none;
+    }
+    .insta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     /*  */
   </style>
 
@@ -83,6 +106,17 @@
       <button id="b2 buttons" class="b2 buttons">resume</button>
       <!-- <button id="b3 buttons" class="b3 buttons">button 3</button> -->
     </div>
-    <img id="sampic body" class="sampic body" src="/sampic" />
+    <img id="sampic" class="sampic" src="/sampic" />
+    <div id="socials" class="socials">
+      <button id="insta socials" class="insta socials" onclick="openinsta()">
+        <img
+          id="ipic insta"
+          class="ipic insta"
+          src="/insta"
+          width="30px"
+          height="30px"
+        />
+      </button>
+    </div>
   </body>
 </html>
