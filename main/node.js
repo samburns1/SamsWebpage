@@ -21,4 +21,11 @@ app.get("/email", function (req, res) {
   res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/email.png");
 });
 
+app.get("/resume.css", function (req, res) {
+  res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/resume.css");
+});
+
+app.get("/main.css", function (req, res) {
+  res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/main.css");
+});
 app.listen(3000);
