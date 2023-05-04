@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .body {
   display: flex;
   flex-direction: column;
@@ -6,6 +14,41 @@
   background-color: #add8e6;
   font-weight: bold;
   margin: 10px;
+}
+
+.nametext {
+  display: none;
+}
+
+.body:has(.sampic:hover) .nametext {
+  color: #657a81;
+  display: block;
+  font-family: "Franklin Gothic Medium", Arial, sans-serif;
+  margin-bottom: 1px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding-right: 2px;
+  border-right: 2px solid #add8e6;
+  white-space: nowrap;
+  animation: typing steps(35) 2s 1, blink 1s infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 190px;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
 }
 
 .sampic {
@@ -17,9 +60,11 @@
   margin: auto;
   transition-duration: 0.5s;
 }
+
 .sampic:hover {
-  border: 10px solid #db5d5d;
+  border: 10px solid #98acb3;
 }
+
 /*  buttons */
 .buttons {
   display: flex;
@@ -42,6 +87,7 @@
 }
 
 .b1:hover {
+  visibility: hidden;
   width: 100px;
   background-color: #db5d5d;
   color: black;
@@ -65,30 +111,16 @@
   color: #add8e6;
 }
 
-.b3 {
-  transition-duration: 0.5s;
-  border: none;
-  background-color: #add8e6;
-  border-bottom: 5px solid #657a81;
-  color: #657a81;
-}
-
-.b3:hover {
-  background-color: #93b0b9;
-  color: #add8e6;
-}
-
 /*  buttons */
 
 .socials {
   display: flex;
   flex-direction: row !important;
-  width: 29px;
-  height: 29px;
-  margin-top: 10px;
+  margin-top: 2px;
   margin-left: auto;
   margin-right: auto;
   background-color: transparent;
+  gap: 30px;
   border: hidden;
 }
 .insta {
@@ -101,7 +133,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 2px;
 }
 
 .epic {

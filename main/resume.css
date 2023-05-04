@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital@1&family=Raleway&family=Roboto+Mono:ital,wght@0,500;1,500&display=swap");
+
 .body {
   display: flex;
   flex-direction: column;
@@ -7,8 +9,7 @@
   font-weight: bold;
   margin: 10px;
   color: #373f41;
-  font-family: "Franklin Gothic Medium", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Kanit", sans-serif;
 }
 
 /*  buttons */
@@ -67,12 +68,12 @@
   width: fit-content;
   border-radius: 25px;
   padding: 10px;
-  border: 5px solid #657a81;
-  background-color: white;
+  border: 5px solid #add8e6;
+  background-color: add8e6;
   transition-duration: 0.5s;
 }
 .text1:hover {
-  border: 10px solid #db5d5d;
+  border: 10px solid #657a81;
 }
 
 .text2 {

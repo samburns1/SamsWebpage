@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <title>login</title>
+  <link rel="stylesheet" type="text/css" href="/login.css" />
+</head>
+
+<html>
+  <div id="cont" class="cont">
+    <form id="login" class="login" action="/login" method="post">
+      <label for="user">Username:</label><br />
+      <input type="text" id="user" name="user" value="user" /><br />
+      <label for="pasa">Password:</label><br />
+      <input type="text" id="pass" name="pass" value="password" /><br />
+      <input type="submit" value="Submit" /> <br />
+      <br />
+      <input
+        type="button"
+        value="Create new user"
+        onclick="window.location.href='/newuser' "
+      />
+    </form>
+  </div>
+</html>

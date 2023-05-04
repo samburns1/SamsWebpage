@@ -1,0 +1,3 @@
+newuser-password
+sam-burns
+hello-world
