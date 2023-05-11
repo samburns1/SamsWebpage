@@ -13,7 +13,9 @@
   justify-content: space-around;
   background-color: #add8e6;
   font-weight: bold;
-  margin: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 9px;
 }
 
 .nametext {
@@ -87,7 +89,6 @@
 }
 
 .b1:hover {
-  visibility: hidden;
   width: 100px;
   background-color: #db5d5d;
   color: black;
@@ -98,6 +99,7 @@
   border-radius: 3px;
   width: 80px;
   height: 23px;
+  margin: auto;
   transition-duration: 0.5s;
   border: none;
   background-color: #add8e6;
@@ -106,6 +108,27 @@
 }
 
 .b2:hover {
+  width: 100px;
+  background-color: #93b0b9;
+  color: #add8e6;
+}
+
+.bform2 {
+  margin: auto;
+}
+
+.b3 {
+  border-radius: 3px;
+  width: 80px;
+  height: 23px;
+  transition-duration: 0.5s;
+  border: none;
+  background-color: #add8e6;
+  border-bottom: 5px solid #657a81;
+  color: #657a81;
+}
+
+.b3:hover {
   width: 100px;
   background-color: #93b0b9;
   color: #add8e6;

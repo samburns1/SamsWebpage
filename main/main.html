@@ -7,6 +7,9 @@
   </head>
   <script defer>
     document.getElementById("insta").src = "/insta";
+    function logout() {
+      window.location.replace("/");
+    }
     function openinsta() {
       window.open("https://www.instagram.com/ssammyburns");
     }
@@ -19,15 +22,19 @@
   </script>
 
   <body id="body" class="body">
-    <div id="buttons body" class="buttons body">
-      <button id="b1 buttons" class="b1 buttons">·home·</button>
-      <button id="b2 buttons" class="b2 buttons" onclick="openresume()">
-        resumé
+    <div id="buttons" class="buttons">
+      <button id="b1 buttons" class="b1 buttons">home</button>
+
+      <form id="bform2" class="bform2" action="/toresume" method="post">
+        <button id="b2 buttons" class="b2 buttons">resumé</button>
+      </form>
+      <button id="b3 buttons" class="b3 buttons" onclick="logout()">
+        log out
       </button>
-      <!-- <button id="b3 buttons" class="b3 buttons">button 3</button> -->
     </div>
 
     <img id="sampic" class="sampic" src="/sampic" />
+
     <p id="nametext" class="nametext">Nice to meet you, I'm Sam</p>
 
     <div id="socials" class="socials">

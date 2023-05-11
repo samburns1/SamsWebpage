@@ -7,19 +7,56 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/createnewuser", (req, res) => {
-  const user = req.body.user;
-  const pass = req.body.pass;
-  console.log(user + "-" + pass + "\n");
-  res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/error.html");
-  console.log("i ran");
-  fs.appendFile(
+  const user = req.body.userdecoy;
+  const pass = req.body.passdecoy;
+
+  //
+  var text = "";
+  var lines = "";
+  data = fs.readFileSync(
     "/Users/samuelburns/Desktop/samWebpage/main/database.txt",
-    user + "-" + pass + "\n",
+    "utf8",
     (err) => {
       if (err) throw err;
     }
   );
-  console.log("i ran again");
+
+  text = data.toString();
+  lines = text.split("\n");
+
+  var valid = true;
+  for (var i = 0; i < lines.length; i++) {
+    const info = lines[i].split("-");
+    if (user == info[0]) {
+      valid = false;
+      res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/error.html");
+      res.json(info[0]);
+
+      console.log("username taken");
+    }
+  }
+  if (valid) {
+    console.log(valid);
+    console.log(user + "-" + pass + "\n");
+    res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/login.html");
+    console.log("i ran");
+    fs.appendFile(
+      "/Users/samuelburns/Desktop/samWebpage/main/database.txt",
+      "\n" + user + "-" + pass,
+      (err) => {
+        if (err) throw err;
+      }
+    );
+    console.log("i ran again");
+  }
+});
+
+app.post("/toresume", (req, res) => {
+  res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/resume.html");
+});
+
+app.post("/tohome", (req, res) => {
+  res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/main.html");
 });
 
 app.post("/login", (req, res) => {
@@ -42,7 +79,7 @@ app.post("/login", (req, res) => {
   for (var i = 0; i < lines.length; i++) {
     const info = lines[i].split("-");
     if (user == info[0] && pass == info[1]) {
-      res.redirect("/main");
+      res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/main.html");
       console.log("entry granted");
       access = true;
     }
@@ -59,9 +96,9 @@ app.get("/", function (req, res) {
   res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/login.html");
 });
 
-app.get("/main", function (req, res) {
-  res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/main.html");
-});
+// app.get("/main", function (req, res) {
+//   res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/main.html");
+// });
 
 app.get("/resume", function (req, res) {
   res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/resume.html");
@@ -98,10 +135,12 @@ app.get("/loginerror", function (req, res) {
 app.get("/newuser", function (req, res) {
   res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/newuser.html");
 });
-// app.post('/login', function (req, res) {
-//   // if (req.body.username == 'sam' && req.body.password == 'sam')
-//   //   res.sendFile('/Users/samuelburns/Desktop/samWebpage/main/main.html');
-//   // else res.status(401).send('Wrong username or password');
-// });
 
+app.get("/newuser.css", function (req, res) {
+  res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/newuser.css");
+});
+
+app.get("/datatxt", (req, res) => {
+  res.sendFile("/Users/samuelburns/Desktop/samWebpage/main/database.txt");
+});
 app.listen(3000);

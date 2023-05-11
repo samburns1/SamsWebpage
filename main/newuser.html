@@ -4,16 +4,106 @@
   <title>main</title>
   <link rel="stylesheet" type="text/css" href="/newuser.css" />
 </head>
-<html>
-  <form id="newuser" class="newuser" action="/createnewuser" method="post">
-    <label for="user"> New Username: </label><br />
-    <input type="text" id="user" name="user" value="newuser" /><br /><br />
-    <label for="pass"> Password: </label><br />
-    <input type="text" id="pass" name="pass" value="password" /><br />
-    <br />
 
-    <label for="submit"> Submit</label><br />
-    <br />
-    <input type="submit" value="Submit" />
+<html>
+  <body id="cont" class="cont">
+    <form id="login" class="login" onsubmit="return false">
+      <label class="user cont" for="user"> New Username: </label>
+      <input class="usertext cont" type="text" id="user" name="user" value="" />
+
+      <button type="submit" id="checker cont" class="checker cont">
+        Check Availability
+        <br />
+      </button>
+      <br />
+      <label class="password cont" for="pass"> New Password: </label>
+      <input class="pass" type="password" id="pass" name="pass" value="" />
+      <br />
+    </form>
+  </body>
+  <form id="enter" class="enter" method="post" action="/createnewuser">
+    <input
+      class="text"
+      type="hidden"
+      id="userdecoy"
+      name="userdecoy"
+      value=""
+    />
+    <input
+      class="text"
+      type="hidden"
+      id="passdecoy"
+      name="passdecoy"
+      value=""
+    />
+    <button id="submit" class="submit" type="submit">Enter</button>
   </form>
+
+  <script>
+    function temp(avail) {
+      if (avail) {
+        document.getElementById("submit").style.visibility = "visible";
+        document.getElementById("user").style.backgroundColor = "#76ff7a";
+      } else {
+        document.getElementById("user").style.backgroundColor = "#ff6347";
+      }
+    }
+
+    function getinfo(user, pass) {
+      document.getElementById("userdecoy").value = user;
+      document.getElementById("passdecoy").value = pass;
+    }
+
+    const formEl = document.getElementById("login");
+    formEl.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formdata = new FormData(formEl);
+      console.log(formdata.get("user"));
+      const userinput = formdata.get("user");
+      const userpass = formdata.get("pass");
+
+      var prom = new Promise((res, rej) => {
+        res(getAvail(userinput, userpass));
+      });
+      prom.then((avail) => {
+        temp(avail);
+      });
+
+      var prom2 = new Promise((res, rej) => {
+        res(concatenate(userinput, userpass));
+      });
+      prom2.then((data) => {
+        console.log(data);
+        getinfo(data[0], data[1]);
+      });
+    });
+    // function check() {
+    //   const formEl = document.getElementById("login");
+    //   const formdata = new FormData(formEl);
+    //   console.log(formdata.get("user"));
+    //   const userinput = formdata.get("user");
+    //   const userpass = formdata.get("user");
+    //   getData(userinput, userpass);
+    // }
+
+    function concatenate(user, userpass) {
+      var userinfo = [user, userpass];
+      return userinfo;
+    }
+
+    async function getAvail(user, userpass) {
+      var obj;
+      const res = await fetch("/datatxt");
+      obj = await res.text();
+      var lines = obj.split("\n");
+      avail = true;
+      for (var i = 0; i < lines.length; i++) {
+        const info = lines[i].split("-");
+        if (info[0] == user) {
+          avail = false;
+        }
+      }
+      return avail;
+    }
+  </script>
 </html>

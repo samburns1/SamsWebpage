@@ -6,18 +6,20 @@
     <link rel="stylesheet" type="text/css" href="/resume.css" />
   </head>
   <script defer>
-    function home() {
+    function logout() {
       window.location.replace("/");
     }
   </script>
 
   <body id="body" class="body">
-    <div id="buttons body" class="buttons body">
-      <button id="b1 buttons" class="b1 buttons" onclick="home()">home</button>
-      <button id="b2 buttons" class="b2 buttons" onclick="openresume()">
-        ·resumé·
+    <div id="buttons" class="buttons">
+      <form id="gohome" class="gohome" action="/tohome" method="post">
+        <button id="b1 buttons" class="b1 buttons">home</button>
+      </form>
+      <button id="b2 buttons" class="b2 buttons">resumé</button>
+      <button id="b3 buttons" class="b3 buttons" onclick="logout()">
+        log out
       </button>
-      <!-- <button id="b3 buttons" class="b3 buttons">button 3</button> -->
     </div>
     <div id="textwrapper" class="textwrapper">
       <p id="text1" class="text1">

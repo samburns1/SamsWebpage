@@ -6,19 +6,26 @@
 </head>
 
 <html>
-  <div id="cont" class="cont">
+  <body id="cont" class="cont">
     <form id="login" class="login" action="/login" method="post">
-      <label for="user">Username:</label><br />
-      <input type="text" id="user" name="user" value="user" /><br />
-      <label for="pasa">Password:</label><br />
-      <input type="text" id="pass" name="pass" value="password" /><br />
-      <input type="submit" value="Submit" /> <br />
-      <br />
+      <label class="usertext cont" for="user">Username:</label>
+      <input class="user" type="text" id="user" name="user" value="" /><br />
+      <label class="passtext cont" for="pasa">Password:</label>
       <input
+        type="password"
+        class="pass"
+        id="pass"
+        name="pass"
+        value=""
+      /><br />
+      <input class="submit" type="submit" value="Submit" /> <br />
+
+      <input
+        class="newuser"
         type="button"
         value="Create new user"
         onclick="window.location.href='/newuser' "
       />
     </form>
-  </div>
+  </body>
 </html>

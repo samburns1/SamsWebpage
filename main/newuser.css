@@ -7,55 +7,51 @@
   margin: 0;
   padding: 0;
 }
+
 .cont {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   background-color: #add8e6;
   font-weight: bold;
   font-family: "Kanit", sans-serif;
   margin-top: 10%;
+  visibility: visible;
+}
+
+.checker {
+  margin-top: 5px;
 }
 
 .login {
-  border-radius: 25px;
+  margin: auto;
   display: flex;
   flex-direction: column;
-
   justify-content: center;
-  padding: 5px;
-  width: 300px;
-  height: 300px;
+  justify-content: space-around;
+  padding: 20px;
+  width: 20%;
+  height: 250px;
+}
 
-  transition-duration: 0.2s;
+.password {
+  margin-top: 0%;
 }
 
 .submit {
   padding: 2px;
+  margin-left: 46.3%;
   border-radius: 3px;
   color: black;
   background-color: #add8e6;
   font-family: "kanit", sans-serif;
-}
-
-.newuser {
-  padding: 2px;
-  margin: 1px;
-  border-radius: 3px;
-  color: black;
-  background-color: #add8e6;
-  font-family: "kanit", sans-serif;
-}
-
-.pass {
-  padding: 2px;
-  border-radius: 3px;
-  color: black;
-  background-color: #add8e6;
-  font-family: "kanit", sans-serif;
+  visibility: hidden;
+  width: 100px;
+  height: 70px;
 }
 
 .user {
+  margin-top: 0px;
   padding: 2px;
   border-radius: 3px;
   color: black;
@@ -67,6 +63,11 @@
   margin-top: 0%;
 }
 
-.passtext {
+.pass {
   margin-top: 0%;
+  padding: 2px;
+  border-radius: 3px;
+  color: black;
+  background-color: #add8e6;
+  font-family: "kanit", sans-serif;
 }
